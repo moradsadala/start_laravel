@@ -5,4 +5,10 @@
 }
 .post-title{
     color: #F4654F;
+    text-align: center;
+}
+.post-link{
+    display:block;
+    text-align: center;
+    text-transform: capitalize;
 }
