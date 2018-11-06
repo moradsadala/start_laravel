@@ -18,9 +18,10 @@ class Post extends Model
             'title' => 'This Title for the none first dummy data',
             'content' => 'This first dummy data'
         ],[
-            'title' => 'This Title for second dummy data',
+            'title' => 'This Title rrr for second dummy data',
             'content' => 'This second dummy data'
         ]] ;
         $request->session()->put('posts',$posts);
     }
+    
 }
