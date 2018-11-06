@@ -1,5 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Validator;
+//use Illuminate\Validation\Validator as newValidator;
+use Illuminate\Http\Request as Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,9 +15,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('blog.index');
-})->name('index');
+Route::get('/', 'PostController@getIndex')->name('index');
 Route::get('post/{id}',function($id){
     if($id == 1){
         $post=[
@@ -39,8 +41,12 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('create', function () {
         return view('admin.create');
     })->name('create_admin');
-    Route::post('create', function (Illuminate\Http\Request $request) {
-        return "It is work";
+    Route::post('create', function (Request $request) {
+        $request->validate([
+            'title'=>'required|min:5',
+            'content'=>'required|min:10'
+        ]);
+        return redirect()->route('admin')->with('info','Post edited new title: ' . $request->input('title'));
     })->name('create_admin');
     Route::get('edit/{id}', function ($id) {
         if($id == 1){
@@ -56,7 +62,11 @@ Route::group(['prefix'=>'admin'],function(){
         }
         return view('admin.edit',['post'=>$post]);
     })->name('edit_admin');
-    Route::post('edit', function (Illuminate\Http\Request $request) {
+    Route::post('edit', function (Request $request) {
+        $request->validate([
+            'title'=>'required|min:5',
+            'content'=>'required|min:10'
+        ]);
         return redirect()->route('admin')->with('info','Post edited new title: ' . $request->input('title'));
     })->name('update_admin');
 });

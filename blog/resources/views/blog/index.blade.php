@@ -6,30 +6,16 @@
             <hr>
         </div>
     </div>
+    @foreach($posts as $post)
     <div class="row">
         <div class="col-md-12">
-            <h2 class="post-title">The Beautiful Laravel </h2>
-            <p class="text-center">Lorem Ipsum is simply dummy text of the printing and typeset.</p>
-            <a href="{{route('post',['id'=>1])}}"><span class="post-link ">read more</span></a>
+            <h2 class="post-title"> {{$post['title']}}</h2>
+            <p class="text-center">{{$post['content']}}</p>
+            <a href="#"><span class="post-link ">read more</span></a>
             <hr>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <h2 class="post-title">The Beautiful Laravel </h2>
-            <p class="text-center">Lorem Ipsum is simply dummy text of the printing and typeset.</p>
-            <a href="{{route('post',['id'=>2])}}"><span class="post-link">read more</span></a>
-            <hr>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <h2 class="post-title">The Beautiful Laravel </h2>
-            <p class="text-center">Lorem Ipsum is simply dummy text of the printing and typeset.</p>
-            <a href="{{route('post',['id'=>3])}}"><span class="post-link">read more</span></a>
-            <hr>
-        </div>
-    </div>
+   @endforeach
     
 
 @endsection
