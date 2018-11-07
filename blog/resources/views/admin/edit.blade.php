@@ -4,7 +4,7 @@
     @include('includes.errors')
     <div class="row">
         <div class="col-md-12">
-            <form action="{{ route('update_admin') }}" method="post">
+            <form action="{{ route('update_admin',['id' => $id]) }}" method="post">
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input
@@ -13,6 +13,7 @@
                             id="title"
                             name="title"
                             value="{{$post['title']}}">
+                            
                 </div>
                 <div class="form-group">
                     <label for="content">Content</label>

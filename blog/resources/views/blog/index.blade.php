@@ -6,12 +6,13 @@
             <hr>
         </div>
     </div>
-    @foreach($posts as $post)
+    
+    @foreach($posts as $id => $post)
     <div class="row">
         <div class="col-md-12">
             <h2 class="post-title"> {{$post['title']}}</h2>
             <p class="text-center">{{$post['content']}}</p>
-            <a href="#"><span class="post-link ">read more</span></a>
+            <a href="{{route('post',['id' => $id ])}}"><span class="post-link ">read more</span></a>
             <hr>
         </div>
     </div>
